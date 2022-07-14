@@ -67,6 +67,9 @@ const bookingScheema=mongoose.Schema({
     buisnessProposal:{
         type:String
     },
+    buisnessProposal:{
+        type:String
+    },
     status:{
         type:String,
         default:"pending"

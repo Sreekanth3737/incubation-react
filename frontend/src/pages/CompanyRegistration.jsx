@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux'
+import {createIncubation} from '../features/incubation/incubationSlice'
 import {toast} from 'react-toastify'
 import Spinner from '../components/Spinner';
 import { FaUser } from 'react-icons/fa';
@@ -23,7 +24,7 @@ import axios from 'axios'
 
 import { useFormik } from 'formik';
 function CompanyRegistration({state,setState}) {
-
+  const dispatch=useDispatch()
    const navigate=useNavigate()
    const [error, setError] = useState("");
    var regExp = /[a-zA-Z]/g;
@@ -55,18 +56,8 @@ function CompanyRegistration({state,setState}) {
 
      },
      onSubmit: (values) => {
-       axios({
-         url: "/companyRegistration",
-         method: "post",
-         data: values,
-       })
-         .then((response) =>{
-          navigate('/')
-       }
-         )
-         .catch((error) => {
-           setError(error.response.data.message);
-         });
+       dispatch(createIncubation(values))
+       navigate('/')
      },
      validate: (values) => {
        let errors = {};
@@ -288,6 +279,17 @@ function CompanyRegistration({state,setState}) {
                label="How do you market your plan"
                fullWidth
              />
+
+              <TextField
+               required
+               onChange={formik.handleChange}
+               value={formik.values.buisnessProposal}
+               name="buisnessProposal"
+               style={{ marginTop: "20px" }}
+               label="share your buisnessProposal"
+               fullWidth
+             />
+
              <FormControl>
                <FormLabel id="demo-radio-buttons-group-label">Type of Incubation need</FormLabel>
                <RadioGroup
