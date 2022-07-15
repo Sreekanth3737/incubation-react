@@ -18,6 +18,15 @@ const createIncubation=async(Data,token)=>{
     
 }
 
+const getIncubeation=async(token)=>{
+    const config={
+        headers:{
+            Authorization:`bearer ${token}`
+        },
+    }
+}
+
+
 const incubationService={
     createIncubation,
     

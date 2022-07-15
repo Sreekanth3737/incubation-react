@@ -6,8 +6,8 @@ const {protect}=require('../middleware/authMiddleware')
 
 
 
-router.post('/',protect,createIncubation)
-router.get('/finduser/:id',protect,findCompany)
+router.route('/').post(protect,createIncubation)
+//router.get('/:id',protect,findCompany)
 
 
 

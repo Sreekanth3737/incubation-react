@@ -32,6 +32,7 @@ function Register() {
                 navigate('/')
             }
 
+
             dispatch(reset())
          },[user,isError,isSuccess,message,navigate,dispatch])
 

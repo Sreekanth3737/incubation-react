@@ -3,11 +3,12 @@ import { useSelector,useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import {reset} from '../features/auth/authSlice'
+import {createIncubation} from '../features/incubation/incubationSlice'
 function UserHome() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user,isLoading, isError, message } = useSelector((state) => state.auth);
-  
+  const {forms}=useSelector((state)=> state.incube);
   useEffect(() => {
     if (isError) {
       console.log(message);
@@ -15,11 +16,17 @@ function UserHome() {
 
     if (!user) {
       navigate('/login');
-    }else{
+    }
+    
+    // if(user.role==='admin'){
+    //   navigate('/login')
+    // }
+    
+    
       return ()=>{
            dispatch(reset())
          }
-    }
+    
     
 
     // return ()=>{

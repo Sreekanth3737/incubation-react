@@ -32,7 +32,7 @@ const createIncubation=asyncHandler(async(req,res)=>{
 
 const findCompany=asyncHandler(async(req,res)=>{
     console.log(req.user.id);
-    const company=Booking.find({})
+    const company=Booking.find({user:req.user.id})
    res.status(200).res.json(company)
 })
 
