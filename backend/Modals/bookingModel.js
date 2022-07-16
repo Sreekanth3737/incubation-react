@@ -73,7 +73,12 @@ const bookingScheema=mongoose.Schema({
     status:{
         type:String,
         default:"pending"
+    },
+    open:{
+        type:Boolean,
+        default:"false"
     }
+
     
     
     

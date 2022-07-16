@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
+import AdminFeed from '../components/AdminFeed';
+import AdminHeader from '../components/AdminHeader';
+import AdminSideBar from '../components/AdminSideBar';
 import Spinner from "../components/Spinner";
 import {reset} from '../features/auth/authSlice'
+
 
 function AdminDashboard() {
 
@@ -40,13 +44,7 @@ function AdminDashboard() {
   
   return (
     <>
-   
-
-      
-    <section className="heading">
-    <h1>Welcome {user && user.name}</h1>
-    <p>User Details</p>
-  </section>
+   <AdminFeed />
   </>
   )
 }

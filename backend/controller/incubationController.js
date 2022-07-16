@@ -1,7 +1,7 @@
 const asyncHandler=require('express-async-handler')
 
 const Booking=require('../Modals/bookingModel')
-
+const user=require('../Modals/userModal')
 
 
 //@description: set goals
@@ -31,13 +31,21 @@ const createIncubation=asyncHandler(async(req,res)=>{
 })
 
 const findCompany=asyncHandler(async(req,res)=>{
-    console.log(req.user.id);
-    const company=Booking.find({user:req.user.id})
-   res.status(200).res.json(company)
+    console.log('guyuygiugjk');
+    console.log(req.user.id+'++++++++++++++');
+    const company=await Booking.find({user:req.user.id})
+    console.log(company);
+   res.status(200).json(company)
+})
+
+const getAllCompany=asyncHandler(async(req,res)=>{
+    const allCompany=await Booking.find()
+    console.log(allCompany);
+    res.status(200).json(allCompany)
 })
 
 
 
 module.exports={
-    createIncubation,findCompany
+    createIncubation,findCompany,getAllCompany
 }

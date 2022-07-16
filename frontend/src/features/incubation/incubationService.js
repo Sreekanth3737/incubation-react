@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+
 const API_URL='/api/incubation/'
 
-//create new goal
+//create new incubation
 
 const createIncubation=async(Data,token)=>{
     const config={
@@ -21,14 +22,18 @@ const createIncubation=async(Data,token)=>{
 const getIncubeation=async(token)=>{
     const config={
         headers:{
-            Authorization:`bearer ${token}`
+            Authorization:`Bearer ${token}`
         },
     }
+
+    const response=await axios.get(API_URL ,config)
+    console.log(response+'------------------');
+    return response.data
 }
 
 
 const incubationService={
-    createIncubation,
+    createIncubation,getIncubeation,
     
 }
 
