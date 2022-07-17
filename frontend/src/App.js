@@ -10,6 +10,10 @@ import Login from './pages/Login';
 import CompanyRegistration from './pages/CompanyRegistration';
 import AdminHeader from './components/AdminHeader';
 import { useSelector,useDispatch } from 'react-redux';
+import TrackApplication from './pages/TrackApplication';
+import ViewApplication from './pages/ViewApplication';
+import BookingSlots from './pages/BookingSlots';
+
 function App() {
 
  
@@ -18,7 +22,7 @@ function App() {
       <Router>
       <div className="container">
      
-         { <AdminDashboard /> ? <AdminHeader /> :  <Header /> }
+           <Header /> 
           
         
         
@@ -27,11 +31,17 @@ function App() {
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>} />
           
-          <Route path='/admin' element={<AdminDashboard />}/>
           <Route path='/booking' element={<CompanyRegistration />}/>
         </Routes>
       </div>
 
+      <Routes>
+
+          <Route path='/admin' element={<AdminDashboard />}/>
+          <Route path='/admin/track' element={<TrackApplication />} />
+          <Route path='/viewApplication' element={<ViewApplication />}/>
+          <Route path='/bookingSlots' element={<BookingSlots />}/>
+      </Routes>
       </Router>
       <ToastContainer />
     </>

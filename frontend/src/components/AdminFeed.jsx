@@ -21,15 +21,18 @@ import companySlice from '../features/companys/companySlice';
 
 function AdminFeed(props) {
 
-  const users = useSelector((state)=>state.company)
+  const users = useSelector((state)=>state.company.companies)
 
   const [state,setState] = useState([])
   const [userStatus,setUserStatus] = useState('')
   const [sample,setSample] = useState(false)
+  console.log(state+'data++++++++++++++');
+  
   useEffect(()=>{
     axios({
+      
       method:'get',
-      url:'/api/incubation/'
+      url:'/api/adminHome'
     })
     .then((res)=>setState(res.data))
   },[sample])
@@ -89,7 +92,7 @@ function AdminFeed(props) {
                           {row.createdAt}
                         </TableCell>
                         <TableCell >
-                          {row.companyName}
+                          {row.company}
                         </TableCell>
                   
                   </TableRow>
@@ -112,29 +115,12 @@ function AdminFeed(props) {
                           {row.status}
                         </TableCell>
                         <TableCell >
-                          {row.createdAt}
+                        {new Date(row.createdAt).toLocaleString('en-US')}
                         </TableCell>
                         <TableCell >
                           {row.company}
                         </TableCell>
-                       {/* {
-                        row.status !=='Registered' && row.status !=='Blocked' &&
-                        <TableCell >
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                                 <InputLabel id="demo-simple-select-label">status</InputLabel>
-                                 <Select
-                                   labelId="demo-simple-select-label"
-                                   id="demo-simple-select"
-                                   value={userStatus}
-                                   onChange={(e)=>{handleChange(row._id,e.target.value)}}
-                                 >
-                                    <MenuItem value={1}>APPROVE</MenuItem>
-                                   <MenuItem value={2}>DENY</MenuItem>
-                                  
-                                 </Select>
-                               </FormControl>
-                         </TableCell> 
-                       } */}
+                       
                   
                   </TableRow>
                 );

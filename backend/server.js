@@ -10,5 +10,8 @@ app.use(express.urlencoded({extended:false}))
 
 app.use('/api/users',require('./routes/userRoutes'))
 app.use('/api/incubation',require('./routes/incubationRoutes'))
+app.use('/api/adminHome',require('./routes/adminRoutes'))
+app.use('/api/slots',require('./routes/slotRoute'))
+
 app.use(errorHandler)
 app.listen(port,()=>console.log(`Server started on port ${port}`))

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 
-const slotScheema=mongoose.Schema({
-    
-},
-{
-    timestamps:true
-}
-)
+const Slot = new mongoose.Schema({
+    section:{type:String},
+    selected:{type:Boolean,default:false},
+    slot_no:{type:Number},
+    companyname:{type:String},
+    user_email:{type:String}
+},{collection:'slots'})
 
-module.exports=mongoose.model('Slots',slotScheema)
+const SlotModel = mongoose.model('slots',Slot)
+
+module.exports=SlotModel;

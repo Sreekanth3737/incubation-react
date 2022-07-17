@@ -7,7 +7,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import PendingIcon from '@mui/icons-material/Pending';
 import BeenhereIcon from '@mui/icons-material/Beenhere';
 import {useSelector,useDispatch} from 'react-redux' 
-// import {newApplication,blockedApplication,pendingApplication,registeredApplication,allApplication} from '../../Constants/ReduxSlice'
+ import {newApplication,blockedApplication,pendingApplication,registeredApplication,allApplication} from '../features/companys/companySlice'
 import WidgetsIcon from '@mui/icons-material/Widgets'
 import TimelineIcon from '@mui/icons-material/Timeline';
 import {useNavigate} from 'react-router-dom'
@@ -29,13 +29,13 @@ function AdminSideBar() {
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
-      <ListItemButton  >
+      <ListItemButton onClick={()=>dispatch(allApplication())} >
         <ListItemIcon>
           <WidgetsIcon/>
         </ListItemIcon>
         <ListItemText primary="ALL" />
       </ListItemButton>
-      <ListItemButton 
+      <ListItemButton onClick={()=>dispatch(newApplication()) }
        >
         <ListItemIcon>
           <FiberNewIcon/>
@@ -43,7 +43,7 @@ function AdminSideBar() {
         <ListItemText primary="NEW APPLICATION" />
       </ListItemButton>
       <Divider variant="middle"   />
-      <ListItemButton 
+      <ListItemButton onClick={()=>dispatch(pendingApplication()) } 
       >
         <ListItemIcon>
           <PendingIcon/>
@@ -51,7 +51,7 @@ function AdminSideBar() {
         <ListItemText primary="PENDING " />
       </ListItemButton>
       <Divider variant="middle"  />
-      <ListItemButton 
+      <ListItemButton onClick={()=>dispatch(registeredApplication()) }
       >
         <ListItemIcon>
           <HowToRegIcon/>
@@ -59,21 +59,21 @@ function AdminSideBar() {
         <ListItemText primary="APPROVED " />
       </ListItemButton>
       <Divider variant="middle" />
-      <ListItemButton >
+      <ListItemButton onClick={()=>dispatch(blockedApplication()) } >
         <ListItemIcon>
           <NewReleasesIcon/>
         </ListItemIcon>
         <ListItemText primary="DENEID " />
       </ListItemButton>
       <Divider variant="middle" />
-      <ListItemButton >
+      <ListItemButton  onClick={()=>navigate('/bookingSlots')}>
         <ListItemIcon>
           <BeenhereIcon/>
         </ListItemIcon>
         <ListItemText primary="BOOKING SLOTS" />
       </ListItemButton>
       <Divider variant="middle" />
-      <ListItemButton >
+      <ListItemButton onClick={()=>navigate('/admin/track')}>
         <ListItemIcon>
           <TimelineIcon/>
         </ListItemIcon>

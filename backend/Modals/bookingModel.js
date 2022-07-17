@@ -76,7 +76,11 @@ const bookingScheema=mongoose.Schema({
     },
     open:{
         type:Boolean,
-        default:"false"
+        default:false
+    },
+    bookingStatus:{
+        type:Boolean,
+        default:false
     }
 
     

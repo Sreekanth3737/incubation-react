@@ -12,16 +12,16 @@ function AdminRightBar() {
   const [count,setCount] = useState()
   const [status,setStatus] = useState(false)
  
-  useEffect(()=>{
-    // // axios({
-    // //   method:'get',
-    // //   url:'/notOpenedApps'
-    // // })
-    // .then((res)=>{
-    //  setCount(res.data.count);
-    //  setState(res.data.companies)
-    // })
-  },[])
+  // useEffect(()=>{
+  //   // // axios({
+  //   // //   method:'get',
+  //   // //   url:'/notOpenedApps'
+  //   // // })
+  //   // .then((res)=>{
+  //   //  setCount(res.data.count);
+  //   //  setState(res.data.companies)
+  //   // })
+  // },[])
 
   const statusHandler = ()=>{
     setStatus(true)

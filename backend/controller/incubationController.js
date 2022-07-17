@@ -38,14 +38,16 @@ const findCompany=asyncHandler(async(req,res)=>{
    res.status(200).json(company)
 })
 
-const getAllCompany=asyncHandler(async(req,res)=>{
-    const allCompany=await Booking.find()
-    console.log(allCompany);
-    res.status(200).json(allCompany)
-})
+// const getAllCompany=asyncHandler(async(req,res)=>{
+//     const allCompany=await Booking.find({}).limit(5)
+//     console.log(allCompany);
+//     res.status(200).json(allCompany)
+// })
+
+
 
 
 
 module.exports={
-    createIncubation,findCompany,getAllCompany
+    createIncubation,findCompany
 }
