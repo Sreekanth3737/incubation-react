@@ -22,9 +22,9 @@ function UserHome() {
     }
     
     
-    // if(user.role==='admin'){
-    //   navigate('/login')
-    // }
+    if(user && user.role==='admin'){
+      navigate('/login')
+    }
     dispatch(getIncubation())
     
       
@@ -40,24 +40,7 @@ function UserHome() {
   }
   return (
     <>
-  <section className="heading">
-        <h1>Welcome {user && user.name}</h1>
-        <p>User Dashboard</p>
-       
-       <Link to={'/booking'}><button className='btn'>Book a slot</button></Link>
-
-       {/* {forms.map((incub)=>(
-        <div>
-          <ul  key={incub._id}>
-            <li>
-              {incub.address}
-            </li>
-          </ul>
-        </div>
-       ))} */}
-      </section>
-
-      <TableContainer component={Paper}>
+    {forms.length>0 ? (<TableContainer component={Paper}>
       <Table sx={{ minWidth: 550 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -93,7 +76,27 @@ function UserHome() {
             )}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer>):(<section className="heading">
+
+
+<h1>Welcome {user && user.name}</h1>
+<p>User Dashboard</p>
+
+<Link to={'/booking'}><button className='btn'>Book a slot</button></Link>
+
+{/* {forms.map((incub)=>(
+<div>
+  <ul  key={incub._id}>
+    <li>
+      {incub.address}
+    </li>
+  </ul>
+</div>
+))} */}
+</section>)}
+  
+
+      
     </>
   )
 }

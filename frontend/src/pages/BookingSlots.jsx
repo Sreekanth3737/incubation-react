@@ -60,6 +60,7 @@ function BookingSlots() {
   useEffect(() => {
     displaySlots();
     applicants();
+    
   }, []);
 
   const applicants = async () => {
@@ -78,7 +79,7 @@ function BookingSlots() {
   const displaySlots = async () => {
     const req = await axios.get("/api/slots");
     // console.log(req.data);
-    // console.log('abccccccccccccccccccccccccccccccc');
+   
 
     const response =  req.data
     // console.log(response);
@@ -129,6 +130,7 @@ function BookingSlots() {
       "/api/slots/slotUpdate",
       data
     );
+    displaySlots()
   };
 
   // console.log(sectionA);
@@ -138,6 +140,8 @@ function BookingSlots() {
       
       <div className="container pt-5 pb-5 me-3">
         <h1 className="">Book Slots </h1>
+        <Button className="mt-3 ms-auto me-3" onClick={()=>navigate('/admin')}>Back</Button>
+
         <div className="row g-5 mt-3">
           <div className=" row-12">
             <div className="row g-3">
@@ -271,7 +275,6 @@ function BookingSlots() {
       </div>
       <br />
 
-          <Button className="mt-3 ms-auto me-3" onClick={()=>navigate('/admin')}>Back</Button>
     </>
   );
 }

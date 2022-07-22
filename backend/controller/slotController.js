@@ -9,8 +9,10 @@ const slotDuplicate = async(req,res) =>{
       if(!duplicate.bookingStatus){
         await Booking.findByIdAndUpdate({_id:applicantId},{$set:{bookingStatus:true}})
         res.status(200).json({ noDuplicate: true });
+      }else{
+        res.status(200).json({ duplicateRemoved: true });
+
       }
-      res.status(200).json({ duplicateRemoved: true });
     } catch (error) {
       res.json({error,slotDuplicate:false});
     }

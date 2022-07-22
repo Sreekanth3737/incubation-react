@@ -88,7 +88,7 @@ function CompanyRegistration({state,setState}) {
 
   return (
     <>
-   <Grid container>
+   <Grid container align="center" allignItems="center" justifyContent="center">
        
        <Grid item xs={12}   >
          <Paper
@@ -320,8 +320,8 @@ function CompanyRegistration({state,setState}) {
                Submit Registration
              </Button>
              <Button
-             onClick={()=>setState(false)}
-             
+            //  onClick={()=>setState(false)}
+            onClick={()=>navigate(-1)}
                variant="contained"
                style={{
                  color: "white",
@@ -329,6 +329,7 @@ function CompanyRegistration({state,setState}) {
                  marginTop: "5px",
                }}
                fullWidth
+              
              >
                Back
              </Button>

@@ -23,7 +23,7 @@ function AdminDashboard() {
     if (!user) {
       navigate('/login');
     }
-    if(user.role==='user'){
+    if(user && user.role==='user'){
       navigate('/login')
     }
     

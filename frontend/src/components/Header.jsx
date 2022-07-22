@@ -17,7 +17,13 @@ function Header() {
   return (
     <header className='header'>
         <div className='logo'>
-            <Link to='/'><h1>Incubation</h1></Link>
+
+            {
+               user && user.role==='admin' ?(<Link to='/admin'><h1>Incubation</h1></Link>
+                ):( <Link to='/'><h1>Incubation</h1></Link>
+                )
+            }
+            {/* <Link to='/'><h1>Incubation</h1></Link> */}
         </div>
         <ul>
             {user ? ( <li>
